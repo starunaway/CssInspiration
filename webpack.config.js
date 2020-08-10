@@ -42,7 +42,7 @@ module.exports = {
   devServer: {
     contentBase: './dist',
     compress: true,
-    port: 10086,
+    port: 10011,
     hot: true,
     open: true,
     historyApiFallback: true,
