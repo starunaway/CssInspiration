@@ -12,12 +12,14 @@ export default () => {
         </div>
       </label>
       <div className='menu-list'>
-        {'123456'.split('').map((v) => (
-          <li key={v}>
-            {v}
-            -items
-          </li>
-        ))}
+        <ul>
+          {'123456'.split('').map((v) => (
+            <li key={v}>
+              {v}
+              -items
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

@@ -13,25 +13,26 @@
     position: relative;
     width: 40px;
     height: 40px;
+    padding: 10px;
 
     .menu-icon-line-1 {
       position: absolute;
       top: 12px;
       display: block;
-      width: 24px;
+      width: 20px;
       height: 1px;
       background: #fff;
-      transition: transform 0.3s ease-in-out, top 0.3s linear;
+      transition: transform 0.3s ease-in-out, top 0.3s ease-in-out 0.3s;
     }
 
     .menu-icon-line-2 {
       position: absolute;
       top: 28px;
       display: block;
-      width: 24px;
+      width: 20px;
       height: 1px;
       background: #fff;
-      transition: transform 0.3s ease-in-out, top 0.3s linear;
+      transition: transform 0.3s ease-in-out, top 0.3s ease-in-out 0.3s;
     }
   }
 
@@ -40,32 +41,39 @@
       .menu-icon-line-1 {
         top: 20px;
         transform: rotate(45deg);
-        transition: transform 0.3s ease-in-out, top 0.3s linear;
+        transition: top 0.3s ease-in-out, transform 0.3s ease-in-out 0.3s;
       }
 
       .menu-icon-line-2 {
         top: 20px;
         transform: rotate(-45deg);
-        transition: transform 0.3s ease-in-out, top 0.3s linear;
+        transition: top 0.3s ease-in-out, transform 0.3s ease-in-out 0.3s;
       }
     }
   }
+}
+.menu-list {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 40px;
+  //   height: 100%;
+  transform: scaleY(0);
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0.3;
+  transform-origin: 50% 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-out;
+}
 
-  .menu-list {
-    position: absolute;
-    display: none;
-    width: 100%;
-    flex: 1;
-    // height: 100%;
-    // background-color: rgba(0, 0, 0, 0.3);
+#toggler:checked ~ .menu-list {
+  transform: scaleY(1);
+  opacity: 1;
+}
 
-    ul,
-    li {
-      list-style: none;
-    }
-  }
+ul {
+  margin-top: 1em;
+}
 
-  #toggler:checked ~ .menu-list {
-    display: block;
-  }
+ul li {
+  color: #fff;
 }
