@@ -1,16 +1,24 @@
 import HumburgerMenu from '@pages/humburgerMenu';
 import Home from '@pages/home';
-
+import flippingCard from '@pages/flippingCard';
 const ROUTES = [
   {
-    name: '首页',
+    description: '首页',
     path: '/home',
     component: Home,
+    keywords: [],
   },
   {
-    name: '剪贴板复制',
+    description: '菜单',
     path: '/humburgerMenu',
     component: HumburgerMenu,
+    keywords: ['菜单', 'menu', 'Menu', 'MENU'],
+  },
+  {
+    description: '翻牌子',
+    path: '/flippingCard',
+    component: flippingCard,
+    keywords: ['翻转', 'cover', '卡片', 'card'],
   },
 ];
 
