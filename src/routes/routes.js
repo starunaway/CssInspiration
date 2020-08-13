@@ -1,6 +1,8 @@
 import HumburgerMenu from '@pages/humburgerMenu';
 import Home from '@pages/home';
 import flippingCard from '@pages/flippingCard';
+import Input1 from '@pages/input1';
+
 const ROUTES = [
   {
     description: '首页',
@@ -19,6 +21,12 @@ const ROUTES = [
     path: '/flippingCard',
     component: flippingCard,
     keywords: ['翻转', 'cover', '卡片', 'card'],
+  },
+  {
+    description: 'Input动态Label',
+    path: '/input1',
+    component: Input1,
+    keywords: ['Input', '输入', 'Form', 'input'],
   },
 ];
 
