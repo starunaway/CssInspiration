@@ -2,6 +2,7 @@ import HumburgerMenu from '@pages/humburgerMenu';
 import Home from '@pages/home';
 import flippingCard from '@pages/flippingCard';
 import Input1 from '@pages/input1';
+import CountDown from '@pages/countDown';
 
 const ROUTES = [
   {
@@ -9,6 +10,12 @@ const ROUTES = [
     path: '/home',
     component: Home,
     keywords: [],
+  },
+  {
+    description: '倒计时',
+    path: '/countDown',
+    component: CountDown,
+    keywords: ['倒计时'],
   },
   {
     description: '菜单',
