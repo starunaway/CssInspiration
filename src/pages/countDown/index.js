@@ -16,6 +16,7 @@ export default () => {
   };
 
   // 先使用类组件完成
+  //    hook 调用时机
   useEffect(() => {
     let timer = setInterval(() => {
       console.log('percent', percent);
