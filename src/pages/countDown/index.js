@@ -39,29 +39,7 @@ export default () => {
         clearInterval(intervalRef.current);
       }
     };
-  }, [null, isStart]);
-
-  //   const handleStart = () => {
-  //     // console.log(timer);
-  //     // if (!timer) {
-  //     //   timer = setInterval(() => {
-  //     //     if (percent >= 100) {
-  //     //       setPercent(0);
-  //     //       setStrokeDashoffset(0);
-  //     //       clearInterval(timer);
-  //     //       timer = null;
-  //     //     } else {
-  //     //       setPercent((state) => state + 0.1);
-  //     //       setStrokeDashoffset((Math.PI * 2 * 55 * percent) / 100);
-  //     //     }
-  //     //   }, 5);
-  //     // }
-
-  //     this.circle.classList = [];
-  //     setTimeout(() => {
-  //       this.circle.classList = ['start'];
-  //     });
-  //   };
+  }, [isStart]);
 
   console.log('render--', percent, strokeDashoffset);
 
