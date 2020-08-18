@@ -8,6 +8,7 @@ export default () => {
   const [percent, setPercent] = useState(0);
   const [strokeDashoffset, setStrokeDashoffset] = useState(0);
   const [isStart, setIsStart] = useState(false);
+  const [timer, setTimer] = useState(null);
 
   const handleStart = () => {
     if (!isStart) {
@@ -18,30 +19,33 @@ export default () => {
   // 先使用类组件完成
   //    hook 调用时机
   useEffect(() => {
-    let timer = setInterval(() => {
-      console.log('percent', percent);
-      if (percent >= 100) {
-        setPercent(0);
-        setStrokeDashoffset(0);
-        clearInterval(timer);
-        timer = null;
-        setIsStart(false);
-      } else {
-        setPercent((state) => state + 0.1);
-        setStrokeDashoffset((Math.PI * 2 * 55 * percent) / 100);
-      }
-    }, 3);
+    console.log(isStart);
+    if (isStart && !timer) {
+      let interval = setInterval(() => {
+        console.log('percent', percent);
+        if (percent >= 100) {
+          setPercent(0);
+          setStrokeDashoffset(0);
+          clearInterval(timer);
+          setTimer(null);
+          setIsStart(false);
+        } else {
+          setPercent(percent + 0.1);
+          setStrokeDashoffset((Math.PI * 2 * 55 * percent) / 100);
+        }
+      }, 3);
 
-    intervalRef.current = timer;
+      setTimer(interval);
+
+      //   intervalRef.current = timer;
+    }
 
     return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
+      if (timer) {
+        clearInterval(timer);
       }
     };
   }, [isStart]);
-
-  console.log('render--', percent, strokeDashoffset);
 
   return (
     <div className='cicle-container'>
