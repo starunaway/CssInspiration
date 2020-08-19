@@ -1,56 +1,45 @@
-import React, {useRef, useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import './style.less';
 
 export default () => {
-  const circleRef = useRef();
-  const intervalRef = useRef();
-
   const [percent, setPercent] = useState(0);
   const [strokeDashoffset, setStrokeDashoffset] = useState(0);
   const [isStart, setIsStart] = useState(false);
-  const [timer, setTimer] = useState(null);
 
   const handleStart = () => {
     if (!isStart) {
+      setPercent(0);
+      setStrokeDashoffset(0);
       setIsStart(true);
     }
   };
 
-  // 先使用类组件完成
-  //    hook 调用时机
   useEffect(() => {
     console.log(isStart);
-    if (isStart && !timer) {
-      let interval = setInterval(() => {
-        console.log('percent', percent);
+
+    let interval;
+    if (isStart) {
+      interval = setInterval(() => {
+        console.log(isStart, percent);
         if (percent >= 100) {
-          setPercent(0);
-          setStrokeDashoffset(0);
-          clearInterval(timer);
-          setTimer(null);
+          clearInterval(interval);
           setIsStart(false);
         } else {
           setPercent(percent + 0.1);
           setStrokeDashoffset((Math.PI * 2 * 55 * percent) / 100);
         }
-      }, 3);
-
-      setTimer(interval);
-
-      //   intervalRef.current = timer;
+      }, 10);
     }
 
     return () => {
-      if (timer) {
-        clearInterval(timer);
-      }
+      clearInterval(interval);
     };
-  }, [isStart]);
+  }, [isStart, percent]);
 
   return (
     <div className='cicle-container'>
       <div className='circle-wrapper'>
-        <svg width={120} height={120} ref={circleRef}>
+        <svg width={120} height={120}>
           <circle fill='transparent' r={55} cx={60} cy={60} strokeWidth={5} stroke='red' />
           <circle
             id='circle'
