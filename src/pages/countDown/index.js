@@ -3,6 +3,7 @@ import './style.less';
 
 export default () => {
   const [percent, setPercent] = useState(0);
+  const [remaining, setRemaining] = useState(5);
   const [strokeDashoffset, setStrokeDashoffset] = useState(0);
   const [isStart, setIsStart] = useState(false);
 
@@ -10,6 +11,7 @@ export default () => {
     if (!isStart) {
       setPercent(0);
       setStrokeDashoffset(0);
+      setRemaining(5);
       setIsStart(true);
     }
   };
@@ -20,15 +22,17 @@ export default () => {
     let interval;
     if (isStart) {
       interval = setInterval(() => {
-        console.log(isStart, percent);
         if (percent >= 100) {
           clearInterval(interval);
           setIsStart(false);
+          setRemaining(0);
         } else {
           setPercent(percent + 0.1);
+          console.log(percent);
+          setRemaining(Math.ceil(5 - 5 * (percent / 100)));
           setStrokeDashoffset((Math.PI * 2 * 55 * percent) / 100);
         }
-      }, 10);
+      }, 5);
     }
 
     return () => {
@@ -59,6 +63,7 @@ export default () => {
       <button type='button' onClick={handleStart}>
         开始计时
       </button>
+      <span>{remaining}</span>
     </div>
   );
 };
