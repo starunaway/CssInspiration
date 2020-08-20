@@ -2,37 +2,46 @@ import React, {useState, useEffect} from 'react';
 import './style.less';
 
 export default () => {
-  const [percent, setPercent] = useState(0);
-  const [remaining, setRemaining] = useState(5);
-  const [strokeDashoffset, setStrokeDashoffset] = useState(0);
+  const size = 120;
+  const stroke = 10;
+
+  const initialSeconds = 3;
+
+  const radius = size / 2 - stroke / 2;
+  const circleOffset = size / 2;
+  const circumference = radius * 2 * Math.PI;
+
+  const [percent, setPercent] = useState(100);
+  const [progress, setProgress] = useState(circumference);
+  const [seconds, setSeconds] = useState(initialSeconds);
   const [isStart, setIsStart] = useState(false);
 
   const handleStart = () => {
     if (!isStart) {
-      setPercent(0);
-      setStrokeDashoffset(0);
-      setRemaining(5);
       setIsStart(true);
     }
   };
 
   useEffect(() => {
-    console.log(isStart);
-
     let interval;
     if (isStart) {
       interval = setInterval(() => {
-        if (percent >= 100) {
+        let newPercent = percent - 1 / 4;
+        if (newPercent <= 0) {
           clearInterval(interval);
           setIsStart(false);
-          setRemaining(0);
+          setPercent(100);
         } else {
-          setPercent(percent + 0.1);
-          console.log(percent);
-          setRemaining(Math.ceil(5 - 5 * (percent / 100)));
-          setStrokeDashoffset((Math.PI * 2 * 55 * percent) / 100);
+          console.log(newPercent);
+          setPercent(newPercent);
+          if (newPercent <= 0.3) {
+            setSeconds(0);
+          } else {
+            setSeconds(Math.ceil((newPercent * initialSeconds) / 100));
+          }
+          setProgress((circumference * percent) / 100);
         }
-      }, 5);
+      }, (initialSeconds * 1000) / 100 / 4);
     }
 
     return () => {
@@ -43,27 +52,33 @@ export default () => {
   return (
     <div className='cicle-container'>
       <div className='circle-wrapper'>
-        <svg width={120} height={120}>
-          <circle fill='transparent' r={55} cx={60} cy={60} strokeWidth={5} stroke='red' />
+        <svg width={size} height={size}>
+          <circle
+            fill='transparent'
+            r={radius}
+            cx={circleOffset}
+            cy={circleOffset}
+            strokeWidth={stroke}
+            stroke='#270b58'
+          />
           <circle
             id='circle'
             fill='transparent'
-            r={55}
-            cx={60}
-            cy={60}
-            strokeWidth={5}
+            r={radius}
+            cx={circleOffset}
+            cy={circleOffset}
+            strokeWidth={stroke}
+            stroke='#f36f21'
             strokeLinecap='round'
-            stroke='#303131'
-            strokeDasharray={Math.PI * 2 * 55}
-            strokeDashoffset={strokeDashoffset}
+            strokeDasharray={circumference}
+            strokeDashoffset={progress}
           />
         </svg>
-        <span className='time' />
+        <span>{seconds}</span>
       </div>
       <button type='button' onClick={handleStart}>
         开始计时
       </button>
-      <span>{remaining}</span>
     </div>
   );
 };
