@@ -12,7 +12,7 @@ export default () => {
   const circumference = radius * 2 * Math.PI;
 
   const [percent, setPercent] = useState(100);
-  const [progress, setProgress] = useState(circumference);
+  const [progress, setProgress] = useState(0);
   const [seconds, setSeconds] = useState(initialSeconds);
   const [isStart, setIsStart] = useState(false);
 
@@ -27,22 +27,22 @@ export default () => {
     let interval;
     if (isStart) {
       interval = setInterval(() => {
-        let newPercent = percent - 1 / 4;
+        let newPercent = percent - 1 / 5;
         if (newPercent <= 0) {
           clearInterval(interval);
           setIsStart(false);
           setPercent(100);
         } else {
-          console.log(newPercent);
           setPercent(newPercent);
-          if (newPercent <= 0.3) {
+          if (newPercent <= 0.2) {
             setSeconds(0);
+            setProgress(circumference);
           } else {
             setSeconds(Math.ceil((newPercent * initialSeconds) / 100));
+            setProgress(circumference - (circumference * percent) / 100);
           }
-          setProgress((circumference * percent) / 100);
         }
-      }, (initialSeconds * 1000) / 100 / 4);
+      }, (initialSeconds * 1000) / 100 / 5);
     }
 
     return () => {
