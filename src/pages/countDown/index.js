@@ -22,7 +22,9 @@ export default () => {
     }
   };
 
-  // todo 计算规则
+  // todo 可以 使用 transition 动画方式 ，通过 ref 添加 class
+  // todo 可以通过 requestAnimationFrame 的方式每帧渲染
+
   useEffect(() => {
     let interval;
     if (isStart) {
