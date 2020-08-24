@@ -8,17 +8,16 @@ export default () => {
         <div className='cover'>COVER</div>
         <div className='back'>BACK</div>
       </div>
-      ,
+
       <div className='card-container' key={2}>
         <div className='cover'>COVER</div>
         <div className='back'>BACK</div>
       </div>
-      ,
+
       <div className='card-container' key={3}>
         <div className='cover'>COVER</div>
         <div className='back'>BACK</div>
       </div>
-      ,
     </div>
   );
 };

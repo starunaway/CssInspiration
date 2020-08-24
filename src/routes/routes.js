@@ -3,6 +3,8 @@ import Home from '@pages/home';
 import flippingCard from '@pages/flippingCard';
 import Input1 from '@pages/input1';
 import CountDown from '@pages/countDown';
+import Grid from '@pages/cssGrid';
+import SpotLight from '@pages/spotLight';
 
 const ROUTES = [
   {
@@ -10,6 +12,18 @@ const ROUTES = [
     path: '/home',
     component: Home,
     keywords: [],
+  },
+  {
+    description: '聚光灯',
+    path: '/spotLight',
+    component: SpotLight,
+    keywords: ['聚光灯', 'spotlight'],
+  },
+  {
+    description: 'Grid布局',
+    path: '/grid',
+    component: Grid,
+    keywords: ['Grid布局', 'Grid'],
   },
   {
     description: '倒计时',
