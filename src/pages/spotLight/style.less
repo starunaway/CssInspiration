@@ -8,7 +8,17 @@
   font-size: 15px;
   h5 {
     color: #333;
-    font-size: 100px;
-    letter-spacing: 1px;
+    font-size: 8rem;
+    letter-spacing: -0.3rem;
+    position: relative;
+    &::after {
+      content: attr(data-spotlight);
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: transparent;
+      background: linear-gradient(90deg, #e92324, #2037e9);
+      clip-path: ellipse(100px 100px at 50% 50%);
+    }
   }
 }
