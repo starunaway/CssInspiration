@@ -19,6 +19,21 @@
       color: transparent;
       background: linear-gradient(90deg, #e92324, #2037e9);
       clip-path: ellipse(100px 100px at 50% 50%);
+      animation: spotlight 6s infinite;
+      background-clip: text;
+      -webkit-background-clip: text;
     }
+  }
+}
+
+@keyframes spotlight {
+  0% {
+    clip-path: ellipse(100px 100px at 0% 50%);
+  }
+  50% {
+    clip-path: ellipse(100px 100px at 100% 50%);
+  }
+  100% {
+    clip-path: ellipse(100px 100px at 0% 50%);
   }
 }
