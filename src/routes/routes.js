@@ -1,5 +1,5 @@
 import Loadable from 'react-loadable';
-import React from 'react';
+import Loading from '@pages/loading';
 
 const ROUTES = [
   {
@@ -7,7 +7,7 @@ const ROUTES = [
     path: '/home',
     component: Loadable({
       loader: () => import('@pages/home'),
-      loading: () => <span>Loading...</span>,
+      loading: Loading,
     }),
     keywords: [],
   },
@@ -16,7 +16,7 @@ const ROUTES = [
     path: '/successTick',
     component: Loadable({
       loader: () => import('@pages/successTick'),
-      loading: () => <span>Loading...</span>,
+      loading: Loading,
     }),
     keywords: ['打勾'],
   },
@@ -25,7 +25,7 @@ const ROUTES = [
     path: '/spotLight',
     component: Loadable({
       loader: () => import('@pages/spotLight'),
-      loading: () => <span>Loading...</span>,
+      loading: Loading,
     }),
     keywords: ['聚光灯', 'spotlight'],
   },
@@ -34,7 +34,7 @@ const ROUTES = [
     path: '/grid',
     component: Loadable({
       loader: () => import('@pages/cssGrid'),
-      loading: () => <span>Loading...</span>,
+      loading: Loading,
     }),
     keywords: ['Grid布局', 'Grid'],
   },
@@ -43,7 +43,7 @@ const ROUTES = [
     path: '/countDown',
     component: Loadable({
       loader: () => import('@pages/countDown'),
-      loading: () => <span>Loading...</span>,
+      loading: Loading,
     }),
     keywords: ['倒计时'],
   },
@@ -52,7 +52,7 @@ const ROUTES = [
     path: '/humburgerMenu',
     component: Loadable({
       loader: () => import('@pages/humburgerMenu'),
-      loading: () => <span>Loading...</span>,
+      loading: Loading,
     }),
     keywords: ['菜单', 'menu', 'Menu', 'MENU'],
   },
@@ -61,7 +61,7 @@ const ROUTES = [
     path: '/flippingCard',
     component: Loadable({
       loader: () => import('@pages/flippingCard'),
-      loading: () => <span>Loading...</span>,
+      loading: Loading,
     }),
     keywords: ['翻转', 'cover', '卡片', 'card'],
   },
@@ -70,7 +70,7 @@ const ROUTES = [
     path: '/input1',
     component: Loadable({
       loader: () => import('@pages/input1'),
-      loading: () => <span>Loading...</span>,
+      loading: Loading,
     }),
     keywords: ['Input', '输入', 'Form', 'input'],
   },
