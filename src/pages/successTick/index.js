@@ -26,5 +26,15 @@ export default () => (
     </svg>
 
     <h2>Success</h2>
+
+    <button
+      type='button'
+      style={{marginTop: 20}}
+      onClick={() => {
+        window.location.reload();
+      }}
+    >
+      再看一遍
+    </button>
   </div>
 );
