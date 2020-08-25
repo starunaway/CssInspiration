@@ -30,7 +30,18 @@ module.exports = {
 
       {
         test: /\.(less|css)$/,
-        use: ['style-loader', 'css-loader', 'less-loader'],
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: (loader) => [require('autoprefixer')()],
+            },
+          },
+          'less-loader',
+        ],
       },
     ],
   },

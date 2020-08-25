@@ -5,6 +5,7 @@ import Input1 from '@pages/input1';
 import CountDown from '@pages/countDown';
 import Grid from '@pages/cssGrid';
 import SpotLight from '@pages/spotLight';
+import SuccessTick from '@pages/successTick';
 
 const ROUTES = [
   {
@@ -12,6 +13,12 @@ const ROUTES = [
     path: '/home',
     component: Home,
     keywords: [],
+  },
+  {
+    description: '打勾',
+    path: '/successTick',
+    component: SuccessTick,
+    keywords: ['打勾'],
   },
   {
     description: '聚光灯',
