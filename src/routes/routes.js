@@ -12,6 +12,15 @@ const ROUTES = [
     keywords: [],
   },
   {
+    description: '开关',
+    path: '/switch',
+    component: Loadable({
+      loader: () => import('@pages/switch'),
+      loading: Loading,
+    }),
+    keywords: ['开关', 'switch'],
+  },
+  {
     description: '打勾',
     path: '/successTick',
     component: Loadable({
