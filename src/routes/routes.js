@@ -1,5 +1,6 @@
 import Loadable from 'react-loadable';
 import Loading from '@pages/loading';
+import Test from '@pages/test';
 
 const ROUTES = [
   {
@@ -9,6 +10,12 @@ const ROUTES = [
       loader: () => import('@pages/home'),
       loading: Loading,
     }),
+    keywords: [],
+  },
+  {
+    description: 'codeTest',
+    path: '/test',
+    component: Test,
     keywords: [],
   },
   {
