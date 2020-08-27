@@ -5,7 +5,12 @@ function Father() {
 
   return (
     <div>
-      <button onClick={() => setValue((v) => v + 1)}> click: {value}</button>
+      <p>
+        react
+        只会处理处理委托给react处理的数据，如果数据状态是单独管理的，react组件在重新渲染的时候，只能拿到组件的初始状态
+      </p>
+      <p>组件自己保存的当前状态在react重新渲染的时候会丢失</p>
+      <button onClick={() => setValue((v) => v + 1)}> Father click: {value}</button>
       <Child value={value}></Child>
     </div>
   );
