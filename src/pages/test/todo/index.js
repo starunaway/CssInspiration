@@ -9,6 +9,9 @@ export default () => {
       <li>
         看一下vue的全教程
         <p>slot：形象的例子：配置一台电脑，需要各种配件。slot：具体的配件，插到插槽里</p>
+        <p>
+          可以直接使用组件的形式写slot，只需要定义<code>slot="name"</code>即可，可以按需加上scope-slot
+        </p>
       </li>
       <li>补觉</li>
       <li>源码解析，高级前端课程</li>
