@@ -28,6 +28,15 @@ const ROUTES = [
     keywords: ['开关', 'switch'],
   },
   {
+    description: 'iphonese',
+    path: '/se',
+    component: Loadable({
+      loader: () => import('@pages/iphoneSE'),
+      loading: Loading,
+    }),
+    keywords: ['se'],
+  },
+  {
     description: '打勾',
     path: '/successTick',
     component: Loadable({
